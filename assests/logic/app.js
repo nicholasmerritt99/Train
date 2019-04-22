@@ -19,11 +19,11 @@ $(document).ready(function(){
     var firstTrain;
     var frequency = 0;
 
-    $("#add-train").on("click", function() {
+    $("#addTrain").on("click", function() {
         event.preventDefault();
-        name = $("#train-name").val().trim();
+        name = $("#trainName").val().trim();
         destination = $("#destination").val().trim();
-        firstTrain = $("#first-train").val().trim();
+        firstTrain = $("#firstTrain").val().trim();
         frequency = $("#frequency").val().trim();
 
         
@@ -51,7 +51,7 @@ $(document).ready(function(){
         var nextTrain = moment().add(minAway, "minutes");
         nextTrain = moment(nextTrain).format("hh:mm");
 
-        $("#add-row").append("<tr><td>" + childSnapshot.val().name +
+        $("#addRow").append("<tr><td>" + childSnapshot.val().name +
                 "</td><td>" + childSnapshot.val().destination +
                 "</td><td>" + childSnapshot.val().frequency +
                 "</td><td>" + nextTrain + 
@@ -64,9 +64,9 @@ $(document).ready(function(){
 
     database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
         
-        $("#name-display").html(snapshot.val().name);
-        $("#email-display").html(snapshot.val().email);
-        $("#age-display").html(snapshot.val().age);
-        $("#comment-display").html(snapshot.val().comment);
+        $("#nameDisplay").html(snapshot.val().name);
+        $("#emailDisplay").html(snapshot.val().email);
+        $("#ageDisplay").html(snapshot.val().age);
+        $("#commentDisplay").html(snapshot.val().comment);
     });
 });
